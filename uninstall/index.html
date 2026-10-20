@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XML Beautifier was removed</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3Crect%20width='40'%20height='40'%20rx='10.9'%20fill='%23cc7712'/%3E%3Cpath%20d='M17.6%2012L9.2%2020l8.4%208M22.4%2012l8.4%208-8.4%208'%20fill='none'%20stroke='%23fff'%20stroke-width='5.2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&display=swap">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="328e350f-b770-4529-9500-92b514123a6c"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    background: #1b1815; color: #f2ece2;
+    font: 17px/1.55 "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+    font-synthesis: none;
+  }
+  .shell { max-width: 640px; margin: 0 auto; padding: 56px 24px 80px; }
+
+  .brand { display: flex; align-items: center; gap: 13px; margin-bottom: 36px; }
+  .mark { display: flex; flex: 0 0 auto; }
+  .brand b { font-size: 15px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+
+  form { margin-top: 8px; }
+  .q { font-size: 14px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: #e8a33d; }
+
+  .options { margin-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+  .opt {
+    display: flex; align-items: center; gap: 12px;
+    border: 1px solid #3a332c; border-radius: 12px; background: #262220;
+    padding: 14px 16px; cursor: pointer; font-size: 16.5px;
+    transition: border-color .15s ease, background .15s ease;
+  }
+  .opt:hover { border-color: #5a5148; }
+  .opt input { position: absolute; opacity: 0; }
+  .opt .dot {
+    width: 20px; height: 20px; border-radius: 50%; flex: 0 0 auto;
+    border: 2px solid #5a5148; transition: border-color .15s ease;
+  }
+  .opt:has(input:checked) { border-color: #e8a33d; background: #2c2620; }
+  .opt:has(input:checked) .dot { border-color: #e8a33d; border-width: 6px; }
+  .opt:has(input:focus-visible) { outline: 2px solid #e8a33d; outline-offset: 2px; }
+
+  .q2 { margin-top: 28px; }
+  textarea {
+    margin-top: 14px; width: 100%; min-height: 96px; resize: vertical;
+    border: 1px solid #3a332c; border-radius: 12px; background: #262220;
+    color: #f2ece2; padding: 13px 16px; font: inherit; font-size: 16px;
+  }
+  textarea::placeholder { color: #8f867a; }
+  textarea:focus-visible { outline: 2px solid #e8a33d; outline-offset: 1px; border-color: #e8a33d; }
+
+  .send {
+    margin-top: 24px; padding: 14px 28px; border: 0; border-radius: 12px;
+    background: #e8a33d; color: #1b1815; font: inherit; font-size: 17px; font-weight: 700;
+    cursor: pointer;
+  }
+  .send:hover { background: #f0b254; }
+  .send:disabled { opacity: .5; cursor: default; }
+
+  .note { margin-top: 28px; font-size: 14px; color: #8f867a; max-width: 56ch; }
+  .note a { color: #b3a996; }
+
+  .thanks { display: none; margin-top: 16px; }
+  .thanks h2 { font-size: 26px; letter-spacing: -0.01em; }
+  .thanks p { margin-top: 10px; color: #b3a996; max-width: 52ch; }
+  body[data-sent="true"] form { display: none; }
+  body[data-sent="true"] .thanks { display: block; }
+</style>
+</head>
+<body>
+  <div class="shell">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="10.9" fill="#cc7712"/><path d="M17.6 12L9.2 20l8.4 8M22.4 12l8.4 8-8.4 8" stroke="#fff" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <b>XML Beautifier</b>
+    </div>
+
+    <form id="feedback">
+      <div class="q">Why did you remove it?</div>
+      <div class="options">
+        <label class="opt"><input type="radio" name="reason" value="I needed to validate against a schema (XSD)"><span class="dot"></span>I needed to validate against a schema (XSD)</label>
+        <label class="opt"><input type="radio" name="reason" value="It couldn't open my XML from a tab or a file"><span class="dot"></span>It couldn't open my XML from a tab or a file</label>
+        <label class="opt"><input type="radio" name="reason" value="I needed XPath, search or a tree view"><span class="dot"></span>I needed XPath, search or a tree view</label>
+        <label class="opt"><input type="radio" name="reason" value="I only needed it once"><span class="dot"></span>I only needed it once</label>
+      </div>
+
+      <div class="q q2">Anything else?</div>
+      <textarea name="details" placeholder="Optional — what happened, or what you expected…"></textarea>
+
+      <button class="send" type="submit">Send feedback</button>
+    </form>
+
+    <div class="thanks">
+      <h2>Thank you. Every answer counts.</h2>
+      <p>It helps us decide what to fix next.</p>
+    </div>
+
+    <p class="note">XML Beautifier never sent your XML anywhere. Its settings were deleted with the extension.
+       Prefer a conversation? <a href="https://github.com/anastasialekasova-hub/xml-beautifier-pages/issues" target="_blank" rel="noopener">Open an issue on GitHub</a>.</p>
+  </div>
+
+<script>
+  // Responses land in a Google Form «XML Beautifier uninstall», created by tools/forms_create.py (mode: form).
+  // Empty constants = submit sends nothing and still shows the thank-you state.
+  var FORM_ID = '';
+  var ENTRY_REASON = '';
+  var ENTRY_DETAILS = '';
+
+  document.getElementById('feedback').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var reason = (document.querySelector('input[name="reason"]:checked') || {}).value || '';
+    var details = document.querySelector('textarea[name="details"]').value.trim();
+
+    if (FORM_ID && (reason || details)) {
+      var data = new FormData();
+      if (ENTRY_REASON && reason) data.append(ENTRY_REASON, reason);
+      if (ENTRY_DETAILS && details) data.append(ENTRY_DETAILS, details);
+      fetch('https://docs.google.com/forms/d/e/' + FORM_ID + '/formResponse',
+        { method: 'POST', mode: 'no-cors', body: data }).catch(function () {});
+    }
+    document.body.dataset.sent = 'true';
+  });
+</script>
+</body>
+</html>

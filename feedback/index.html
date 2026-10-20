@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help us improve XML Beautifier</title>
+<meta name="robots" content="noindex">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="328e350f-b770-4529-9500-92b514123a6c"></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2040%2040'%3E%3Crect%20width='40'%20height='40'%20rx='10.9'%20fill='%23cc7712'/%3E%3Cpath%20d='M17.6%2012L9.2%2020l8.4%208M22.4%2012l8.4%208-8.4%208'%20fill='none'%20stroke='%23fff'%20stroke-width='5.2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&display=swap">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    background: #1b1815; color: #f2ece2;
+    font: 17px/1.55 "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+    font-synthesis: none;
+  }
+  .shell { max-width: 640px; margin: 0 auto; padding: 56px 24px 80px; }
+
+  .brand { display: flex; align-items: center; gap: 13px; margin-bottom: 36px; }
+  .mark { display: flex; flex: 0 0 auto; }
+  .brand b { font-size: 15px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+
+  .intro h1 { font-size: 32px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; }
+  .intro p { margin-top: 12px; color: #b3a996; max-width: 52ch; text-wrap: pretty; }
+
+  form { margin-top: 36px; }
+  .q { display: block; font-size: 14px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: #e8a33d; }
+
+  textarea {
+    display: block; margin-top: 14px; width: 100%;
+    border: 1px solid #3a332c; border-radius: 12px; background: #262220;
+    color: #f2ece2; padding: 13px 16px; font: inherit; font-size: 16px;
+    min-height: 132px; resize: vertical;
+  }
+  textarea::placeholder { color: #8f867a; }
+  textarea:focus-visible { outline: 2px solid #e8a33d; outline-offset: 1px; border-color: #e8a33d; }
+
+  .send {
+    margin-top: 24px; padding: 14px 28px; border: 0; border-radius: 12px;
+    background: #e8a33d; color: #1b1815; font: inherit; font-size: 17px; font-weight: 700;
+    cursor: pointer;
+  }
+  .send:hover { background: #f0b254; }
+  .send:disabled { opacity: .5; cursor: default; }
+
+  .note { margin-top: 28px; font-size: 14px; color: #8f867a; max-width: 56ch; }
+  .note a { color: #b3a996; }
+
+  .thanks { display: none; }
+  .thanks h2 { font-size: 26px; letter-spacing: -0.01em; }
+  .thanks p { margin-top: 10px; color: #b3a996; max-width: 52ch; }
+  body[data-sent="true"] .intro,
+  body[data-sent="true"] form { display: none; }
+  body[data-sent="true"] .thanks { display: block; }
+</style>
+</head>
+<body>
+  <div class="shell">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="40" height="40" rx="10.9" fill="#cc7712"/><path d="M17.6 12L9.2 20l8.4 8M22.4 12l8.4 8-8.4 8" stroke="#fff" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <b>XML Beautifier</b>
+    </div>
+
+    <div class="intro">
+      <h1>Help us improve XML Beautifier</h1>
+      <p>Thanks for the honest rating. Tell us what got in the way — it takes half a minute.</p>
+    </div>
+
+    <form id="feedback">
+      <label class="q" for="details">What should be better?</label>
+      <textarea id="details" name="details" placeholder="What went wrong, or what you expected…"></textarea>
+
+      <button class="send" type="submit">Send feedback</button>
+    </form>
+
+    <div class="thanks">
+      <h2>Thank you. Every answer counts.</h2>
+      <p>It helps us decide what to fix next.</p>
+    </div>
+
+    <p class="note">Prefer a conversation? <a href="https://github.com/anastasialekasova-hub/xml-beautifier-pages/issues" target="_blank" rel="noopener">Open an issue on GitHub</a>.</p>
+  </div>
+
+<script>
+  // Responses land in a Google Form «XML Beautifier feedback», created by tools/forms_create.py (mode: form).
+  // Empty constants = submit sends nothing and still shows the thank-you state.
+  var FORM_ID = '';
+  var ENTRY_DETAILS = '';
+
+  document.getElementById('feedback').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var details = document.querySelector('textarea[name="details"]').value.trim();
+
+    if (FORM_ID && ENTRY_DETAILS && details) {
+      var data = new FormData();
+      data.append(ENTRY_DETAILS, details);
+      fetch('https://docs.google.com/forms/d/e/' + FORM_ID + '/formResponse',
+        { method: 'POST', mode: 'no-cors', body: data }).catch(function () {});
+    }
+    document.body.dataset.sent = 'true';
+  });
+</script>
+</body>
+</html>
