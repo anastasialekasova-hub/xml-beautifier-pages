@@ -29,16 +29,20 @@
   .step h2 { font-size: 24px; letter-spacing: -0.01em; }
   .step > p { margin-top: 8px; color: #b3a996; max-width: 58ch; }
 
-  /* Annotated screenshots break out of the text column so the UI reads big. */
+  /* Annotated screenshots break out of the text column so the UI reads big; a grey backdrop sets the dark
+     browser window apart from the dark page. */
   .shot {
-    position: relative; margin-top: 16px; border-radius: 14px; overflow: hidden;
-    border: 1px solid #3a332c; box-shadow: 0 18px 50px rgba(0,0,0,.4); background: #262220;
-    width: min(94vw, 780px);
+    position: relative; margin-top: 16px; border-radius: 16px; padding: 18px;
+    background: #625b53; box-shadow: 0 18px 50px rgba(0,0,0,.45);
+    width: min(94vw, 816px);
     left: 50%; transform: translateX(-50%);
   }
-  .shot img { width: 100%; height: auto; display: block; }
+  .shot img { width: 100%; height: auto; display: block; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+  @media (max-width: 600px) {
+    .shot { padding: 10px; border-radius: 12px; }
+    .shot img { border-radius: 7px; }
+  }
 
-  strong { font-weight: 600; color: #f2ece2; }
   footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid #3a332c; font-size: 14px; color: #8f867a; }
   footer a { color: #b3a996; }
 </style>
@@ -58,17 +62,9 @@
     </section>
     <section class="step">
       <h2>Click the icon and paste your XML</h2>
-      <p>XML Beautifier opens in its own tab. Paste XML or drop a file, and the formatted version appears on the right.
-         If the current tab shows an XML file, clicking the icon loads it for you.</p>
+      <p>XML Beautifier opens in its own tab. Paste XML or drop a file, and the formatted version appears on the right.</p>
       <div class="shot">
-        <img src="step-3-open.png" alt="XML Beautifier pinned in the Chrome toolbar; step 3 — click its icon to open XML Beautifier in its own tab" width="1760" height="880">
-      </div>
-    </section>
-    <section class="step">
-      <h2>Or select XML on a page and right-click</h2>
-      <p>Choose <strong>Beautify selected XML</strong>, and the selected text opens in XML Beautifier, already formatted.</p>
-      <div class="shot">
-        <img src="step-4-context-menu.png" alt="XML selected on a web page with the right-click menu open; step 4 — choose Beautify selected XML" width="1760" height="760">
+        <img src="step-3-open.png" alt="XML Beautifier pinned in the Chrome toolbar; step 3 — click its icon to open XML Beautifier in its own tab" width="1760" height="500">
       </div>
     </section>
     <footer>
